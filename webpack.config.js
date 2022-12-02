@@ -15,14 +15,25 @@ module.exports = {
     module: {
         rules: [{
             test: /\.jsx$/,
+            exclude: /node_modules/,
             loader: "babel-loader",
             options: {
                 presets: ["@babel/preset-react"],
             }
-        }, {
+        }, 
+        { 
+            test: /\.tsx$/, 
+            exclude: /node_modules/,
+            use: 'ts-loader', 
+        },
+        {
             test: /\.css$/i, 
 			use: ["style-loader", "css-loader"], 
         }]
+    },
+    resolve: { 
+        modules: ['node_modules'],
+        extensions: [".tsx", ".jsx", '.js'], 
     },
     plugins: [
         new HtmlWebpackPlugin({
