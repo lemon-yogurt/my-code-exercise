@@ -14,11 +14,14 @@ module.exports = {
     },
     module: {
         rules: [{
-        test: /\.jsx$/,
-        loader: "babel-loader",
-        options: {
-            presets: ["@babel/preset-react"],
-        }
+            test: /\.jsx$/,
+            loader: "babel-loader",
+            options: {
+                presets: ["@babel/preset-react"],
+            }
+        }, {
+            test: /\.css$/i, 
+			use: ["style-loader", "css-loader"], 
         }]
     },
     plugins: [
